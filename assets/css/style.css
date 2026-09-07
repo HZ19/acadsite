@@ -117,6 +117,13 @@ header.site-head .wrap {
   margin: 0;
   max-width: 46ch;
 }
+.site-head .pronounce {
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0.3rem 0 0.6rem;
+}
 
 nav.site-nav ul {
   list-style: none;
