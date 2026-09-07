@@ -1,0 +1,312 @@
+/* ============================================================
+   Academic site — shared stylesheet
+   Design system: paper ink + slate-teal accent, IBM Plex pairing
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #faf9f6;
+  --bg-alt: #f1efe9;
+  --ink: #1e2124;
+  --muted: #6b6a64;
+  --accent: #28454f;
+  --accent-soft: #3f6672;
+  --line: #dedbd3;
+
+  --serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --content-w: 680px;
+  --wide-w: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- skip link (accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.6em 1em;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1em;
+  top: 1em;
+}
+
+/* ---------- focus states ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- links ---------- */
+a {
+  color: var(--accent);
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--accent-soft);
+  text-decoration-color: var(--accent-soft);
+}
+
+/* ---------- layout shell ---------- */
+.wrap {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.wrap--wide {
+  max-width: var(--wide-w);
+}
+
+/* ---------- header ---------- */
+header.site-head {
+  border-bottom: 1px solid var(--line);
+  padding: 3rem 0 0;
+}
+header.site-head .wrap {
+  max-width: var(--wide-w);
+}
+.site-head h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0 0 0.15em;
+  letter-spacing: -0.01em;
+}
+.site-head .role {
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 1.75rem;
+  max-width: 46ch;
+}
+
+nav.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0 0 0;
+}
+nav.site-nav a {
+  display: inline-block;
+  padding: 0.9rem 0 0.9rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+nav.site-nav a:hover {
+  color: var(--accent);
+}
+nav.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- main content ---------- */
+main {
+  padding: 2.75rem 0 4rem;
+}
+
+main h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.9rem;
+  letter-spacing: -0.005em;
+}
+main h2:first-child {
+  margin-top: 0;
+}
+main h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.4rem;
+}
+
+main p {
+  margin: 0 0 1.1rem;
+  max-width: 62ch;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 56ch;
+  margin: 0 0 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- research / publication list ---------- */
+.record-group h3 {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: none;
+  margin: 2.25rem 0 0.75rem;
+}
+
+ul.records {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+ul.records li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+ul.records .rec-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin: 0 0 0.3rem;
+}
+ul.records .rec-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ---------- lists (courses, links, etc.) ---------- */
+main ul.plain {
+  padding-left: 1.2em;
+  margin: 0 0 1.1rem;
+}
+main ul.plain li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 0.65em 1.3em;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 2px;
+}
+.btn:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ---------- at-a-glance / timeline ---------- */
+.timeline {
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0 2rem;
+}
+.timeline .row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.timeline .row .when {
+  flex: 0 0 9ch;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding-top: 0.15em;
+}
+.timeline .row .what {
+  flex: 1;
+}
+.timeline .row .what .pos {
+  font-family: var(--serif);
+}
+.timeline .row .what .org {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- placeholder callouts ---------- */
+.todo {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  max-width: 62ch;
+}
+.todo strong { color: var(--ink); }
+
+/* ---------- contact list ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.contact-list li {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list .label {
+  flex: 0 0 8ch;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- footer ---------- */
+footer.site-foot {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 0 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+footer.site-foot .wrap { max-width: var(--wide-w); }
+footer.site-foot a { color: var(--muted); }
+footer.site-foot a:hover { color: var(--accent); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  header.site-head { padding-top: 2rem; }
+  .site-head h1 { font-size: 1.6rem; }
+  nav.site-nav ul { gap: 1.1rem; }
+  .timeline .row { flex-direction: column; gap: 0.2rem; }
+  .timeline .row .when { flex: none; }
+  .contact-list li { flex-direction: column; gap: 0.2rem; }
+  .contact-list .label { flex: none; }
+}
+
+/* ---------- print (for CV page) ---------- */
+@media print {
+  nav.site-nav, footer.site-foot, .skip-link { display: none; }
+  body { background: #fff; }
+}
